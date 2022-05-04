@@ -4,4 +4,7 @@ RUN go install github.com/hashicorp/hcl/v2/cmd/hcldec@v2.12.0
 
 FROM alpine
 
-COPY --from=builder /go/bin/hcldec /bin/hcldec
+COPY --from=builder /go/bin/hcldec /bin/
+COPY dependencies.hcldec /root/
+
+ENTRYPOINT /bin/hcldec --spec=/root/dependencies.hcldec

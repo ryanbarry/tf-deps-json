@@ -1,0 +1,18 @@
+object {
+  block_map "providers" {
+    block_type = "provider"
+    labels = ["provider"]
+
+    object {
+      attr "version" {
+        type = string
+      }
+      attr "constraints" {
+        type = string
+      }
+      attr "hashes" {
+        type = list(string)
+      }
+    }
+  }
+}
